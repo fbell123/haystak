@@ -1,10 +1,9 @@
 [![Stories in Ready](https://badge.waffle.io/fbell123/haystak.png?label=ready&title=Ready)](https://waffle.io/fbell123/haystak)
-# Haysta:k
-------
-###Helping developers efficiently find answers to FAQ's & PAQ's
-####Chrome extension
+# Haysta:k - 
+##Helping developers efficiently find answers to FAQ's & PAQ's
 
-#####MVP User Stories
+
+###MVP User Stories
 MVP Description: Users can save questions & the url they visited and view them separately
 ```
 As a developer,
