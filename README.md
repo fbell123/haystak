@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/fbell123/haystak.png?label=ready&title=Ready)](https://waffle.io/fbell123/haystak)
 # Haysta:k
 ------
 ###Helping developers efficiently find answers to FAQ's & PAQ's
