@@ -1,11 +1,8 @@
-var question;
-
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
-  displayQuestions();
+  // displayQuestions();
 
   chrome.tabs.getSelected(null, function(tab) {
-    // document.querySelector('#sitename').innerHTML = tab.url;
     document.querySelector('#save_url').addEventListener('click', function () {
       var text = document.querySelector('#save_url').value;
       localStorage[document.getElementById('question_text').innerHTML] = tab.url;
@@ -20,8 +17,7 @@ function search(question) {
 }
 
 function saveQuestion(question){
-  // document.getElementById('question_text').innerHTML = question;
-  localStorage[question] = "";
+  localStorage["Haystak"] = JSON.stringify({ [question] : ""});
 }
 
 
@@ -31,10 +27,10 @@ function questionSearch(){
   saveQuestion(question);
 }
 
-function displayQuestions(){
-document.getElementById('question_text').innerHTML = localStorage[localStorage.length-1];
-console.log(localStorage[localStorage.l]);
-}
+// function displayQuestions(){
+// document.getElementById('question_text').innerHTML = localStorage[localStorage.length-1];
+// console.log(localStorage[localStorage.l]);
+// }
 
 
 
