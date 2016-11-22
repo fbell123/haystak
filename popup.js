@@ -1,16 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
+var question;
 
-chrome.tabs.getSelected(null, function(tab) {
-  document.querySelector('#sitename').innerHTML = tab.url;
-  window.siteurl = tab.url;
+  document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('search').addEventListener('click', questionSearch);
+  displayQuestions();
 
-  document.querySelector('#save_url').addEventListener('click', function () {
-    var text = document.querySelector('#save_url').value;
-    localStorage[window.siteurl] = text;
+  chrome.tabs.getSelected(null, function(tab) {
+    // document.querySelector('#sitename').innerHTML = tab.url;
+    document.querySelector('#save_url').addEventListener('click', function () {
+      var text = document.querySelector('#save_url').value;
+      localStorage[document.getElementById('question_text').innerHTML] = tab.url;
+    });
   });
+});
 
-});
-});
+
+function search(question) {
+  question.split(' ').join('+');
+  chrome.tabs.create({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
+}
+
+function saveQuestion(question){
+  // document.getElementById('question_text').innerHTML = question;
+  localStorage[question] = "";
+}
+
+
+function questionSearch(){
+  var question = document.getElementById('question').value;
+  search(question);
+  saveQuestion(question);
+}
+
+function displayQuestions(){
+document.getElementById('question_text').innerHTML = localStorage[localStorage.length-1];
+console.log(localStorage[localStorage.l]);
+}
+
+
 
 // // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // // Use of this source code is governed by a BSD-style license that can be

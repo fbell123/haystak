@@ -31,12 +31,16 @@
   </head>
   <body>
       <script src="popup.js"></script>
-    <input type="textarea" name="" placeholder="Search Google">
-    <input type="button" name="" value="Search"><br>
-    <label for="" name="note"><span id="sitename"></span></label>
+      <form class="search-form">
+    <input id="question" type="textarea" cols="80" name="" placeholder="Search Google">
+    <input type="submit" id="search" name="" value="Search"><br>
+      </form>
+    <label for="" name="note"><span id="question_text"></span></label>
 
     <br><br>
     <input type="button" id="save_url" value="Save">
 
+    <p id="history">
+    </p>
   </body>
 </html>

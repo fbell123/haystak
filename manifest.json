@@ -11,7 +11,10 @@
     "default_title": "Click here!"
   },
   "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
+    "*://*.google.com/*",
+      "activeTab",
+      "tabs",
+      "https://ajax.googleapis.com/",
+      "storage"
   ]
 }
