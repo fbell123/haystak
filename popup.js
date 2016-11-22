@@ -1,18 +1,39 @@
-function loadUrl() {
-  var url = document.getElementById('question').value;
+function search(url) {
   url.split(' ').join('+');
   chrome.tabs.create({"url": "https://www.google.co.uk/search?q="+url, "selected": true});
- }
+}
+
+function saveQuestion(url){
+  current = localStorage['save'] || ""
+  if (current === ""){
+    current = url
+  } else {
+    current += "," + url
+  }
+  localStorage['save'] = current
+}
+
+function questionSearch(){
+  var url = document.getElementById('question').value;
+  search(url);
+  saveQuestion(url);
+}
+
+function displayQuestions(){
+  if (!localStorage['save']){
+    document.getElementById('history').innerHTML = "";
+  } else {
+    var questions = localStorage['save'].split(",")
+    for (i = 0; i < questions.length; i++){
+      document.getElementById('history').innerHTML += "<a href='https://www.google.co.uk/search?q="+questions[i]+"'>"+questions[i]+"</a><br>";
+    }
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-
-  document.getElementById('search').addEventListener('click', loadUrl);
-
+  document.getElementById('search').addEventListener('click', questionSearch);
+  displayQuestions();
 });
-
-
-
-
 
 
 
