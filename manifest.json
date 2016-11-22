@@ -27,9 +27,11 @@
   },
 
   "permissions": [
-    "tabs",
+    "*://*.google.com/*",
     "activeTab",
+    "tabs",
     "https://ajax.googleapis.com/",
     "storage"
   ]
+
 }

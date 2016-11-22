@@ -1,58 +1,75 @@
-// Copyright (c) 2014 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+function search(url) {
+  url.split(' ').join('+');
+  chrome.tabs.create({"url": "https://www.google.co.uk/search?q="+url, "selected": true});
+}
 
-/**
- * Get the current URL.
- *
- *{function(string)} callback - called when the URL of the current tab
- *   is found.
-//  */
-// function save (url){
-//  if (!localStorage.checkins) localStorage.checkins = JSON.stringify([]);
-//  var checkins = JSON.parse(localStorage["checkins"]);
-// localStorage.checkins.push(url);
-// // localStorage["checkins"] = JSON.stringify(checkins);
-// }
+function saveQuestion(url){
+  current = localStorage['save'] || ""
+  if (current === ""){
+    current = url
+  } else {
+    current += "," + url
+  }
+  localStorage['save'] = current
+}
+
+function questionSearch(){
+  var url = document.getElementById('question').value;
+  search(url);
+  saveQuestion(url);
+}
+
+function displayQuestions(){
+  if (!localStorage['save']){
+    document.getElementById('history').innerHTML = "";
+  } else {
+    var questions = localStorage['save'].split(",")
+    for (i = 0; i < questions.length; i++){
+      document.getElementById('history').innerHTML += "<a href='https://www.google.co.uk/search?q="+questions[i]+"'>"+questions[i]+"</a><br>";
+    }
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-
-chrome.tabs.getSelected(null, function(tab) {
-  document.querySelector('#sitename').innerHTML = tab.url;
-  window.siteurl = tab.url;
-
-  document.querySelector('#save_url').addEventListener('click', function () {
-    var text = document.querySelector('#save_url').value;
-    localStorage[window.siteurl] = text;
-  });
-
-});
-  document.querySelector('#sitename').close();
+  document.getElementById('search').addEventListener('click', questionSearch);
+  displayQuestions();
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Copyright (c) 2014 The Chromium Authors. All rights reserved.
+// // Use of this source code is governed by a BSD-style license that can be
+// // found in the LICENSE file.
 //
-// function clickHandler() {
-//     chrome.runtime.sendMessage({directive: "popup-click"}, function(response) {
-//         this.close(); // close the popup when the background finishes processing request
-//     });
-// }
-//
-// document.addEventListener('DOMContentLoaded', function () {
-//   // var link = document.getElementById('click-me');
-//     chrome.tabs.getSelected(null, function(tab) {
-//           document.querySelector('#sitename').innerHTML = tab.url;
-//           window.siteurl = tab.url;
-//            console.log(tab.url);
-//     link.addEventListener('click', function(){
-//       console.log("hello2");
-//     });
-// });
-// });
-// // document.addEventListener('DOMContentLoaded', function () {
-// // document.getElementById('click-me').addEventListener('click', console.log("passed"));
-// // });
-// //
-// // // function getCurrentTabUrl(callback) {
+// /**
+//  * Get the current URL.
+//  *
+//  * @param {function(string)} callback - called when the URL of the current tab
+//  *   is found.
+//  */
+// function getCurrentTabUrl(callback) {
+>>>>>>> save-question#12
 //   // Query filter to be passed to chrome.tabs.query - see
 //   // https://developer.chrome.com/extensions/tabs#method-query
 //   var queryInfo = {
@@ -80,6 +97,7 @@ chrome.tabs.getSelected(null, function(tab) {
 //
 //     callback(url);
 //   });
+<<<<<<< HEAD
 
   // Most methods of the Chrome extension APIs are asynchronous. This means that
   // you CANNOT do something like this:
@@ -96,6 +114,24 @@ chrome.tabs.getSelected(null, function(tab) {
 // //  * @param {function(string,number,number)} callback - Called when an image has
 // //  *   been found. The callback gets the URL, width and height of the image.
 // //  * @param {function(string)} errorCallback - Called when the image is not found.
+=======
+//
+//   // Most methods of the Chrome extension APIs are asynchronous. This means that
+//   // you CANNOT do something like this:
+//   //
+//   // var url;
+//   // chrome.tabs.query(queryInfo, function(tabs) {
+//   //   url = tabs[0].url;
+//   // });
+//   // alert(url); // Shows "undefined", because chrome.tabs.query is async.
+// }
+//
+// /**
+//  * @param {string} searchTerm - Search term for Google Image search.
+//  * @param {function(string,number,number)} callback - Called when an image has
+//  *   been found. The callback gets the URL, width and height of the image.
+//  * @param {function(string)} errorCallback - Called when the image is not found.
+>>>>>>> save-question#12
 //  *   The callback gets a string that describes the failure reason.
 //  */
 // function getImageUrl(searchTerm, callback, errorCallback) {

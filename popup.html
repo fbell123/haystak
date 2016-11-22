@@ -29,15 +29,20 @@
      -->
 
   </head>
-  <body>
-<script src="popup.js"></script>
 
-    <input type="textarea" name="" placeholder="Search Google">
-    <input type="button" name="" value="Search"><br>
-    <label for="site_url"><span id="sitename"></span></label>
+  <body>
+    <script type="text/javascript" src="popup.js"></script>
+
+    <form class="search-form">
+      <input id="question" type="textarea" cols="80" name="" placeholder="Search Google" >
+      <input id="search" type="submit" name="" value="Search">
+    </form>
 
     <br><br>
     <input type="button" value="Save" id='save_url'><br>
+
+    <p id="history">
+    </p>
 
   </body>
 
