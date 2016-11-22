@@ -27,11 +27,17 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-    <script src="popup.js"></script>
+
   </head>
+
   <body>
-    <input type="textarea" name="" placeholder="Search Google">
-    <input type="button" name="" value="Search"><br>
+    <script type="text/javascript" src="popup.js"></script>
+
+    <form class="search-form">
+      <input id="question" type="textarea" name="" placeholder="Search Google" >
+      <input id="search" type="submit" name="" value="Search">
+    </form>
+    <br>
 
     <br><br>
     <input type="button" name="" value="Save">
