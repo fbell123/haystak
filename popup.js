@@ -3,12 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // displayQuestions();
 
   chrome.tabs.getSelected(null, function(tab) {
-    document.querySelector('#save_url').addEventListener('click', function () {
-      var text = document.querySelector('#save_url').value;
-      localStorage[document.getElementById('question_text').innerHTML] = tab.url;
-    });
-  });
+    document.querySelector('#save_url').addEventListener('click', getUrl);
+      // var question = document.querySelector('#save_url').value;
+    }
+  );
 });
+
+
+function getUrl(){
+  chrome.tabs.getSelected(null, function(tab) {
+      document.getElementById('currentLink').innerHTML = tab.url;
+      var url = tab.url;
+    saveUrl(url);
+});
+}
 
 
 function search(question) {
@@ -17,14 +25,25 @@ function search(question) {
 }
 
 function saveQuestion(question){
-  localStorage["Haystak"] = JSON.stringify({ [question] : ""});
+    console.log("hello2");
+    chrome.extension.getBackgroundPage().storeQuestion(question);
+  // chrome.runtime.sendMessage(question);
+    search(question);
+  // localStorage["Haystak"] = JSON.stringify({ [question] : ""});
 }
-
+ function saveUrl(url){
+  //  var question = url;
+  //  console.log(question);
+   chrome.extension.getBackgroundPage().storeUrl(url);
+   console.log("hello 3");
+  //  chrome.runtime.sendMessage(question);
+ }
 
 function questionSearch(){
   var question = document.getElementById('question').value;
-  search(question);
-  saveQuestion(question);
+  console.log("hello");
+  console.log(question);
+saveQuestion(question);
 }
 
 // function displayQuestions(){
