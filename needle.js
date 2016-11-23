@@ -29,6 +29,17 @@ function retrieve(){
   retrieveGoogleUrls(messageBackground);
 }
 
+
+
+function appendImageToPage(url){
+  var img = document.createElement('img');
+  img.src = 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png';
+  document.querySelector("a[href='link']").appendChild(img);
+}
+var img = document.createElement('img');
+img.src = 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png';
+document.getElementById('container').appendChild(img);
+
   // var compareArrays = function(){
   //   var matches = []
   //     for(var i=0; i<values.length; i++) {
