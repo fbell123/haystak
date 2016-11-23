@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
-    document.querySelector('#save_url').addEventListener('click', getUrl);
+    document.querySelector('#save_url').addEventListener('click', save);
   }
 );
 });
 
+function save(){
+  getHighlight(getUrl);
+}
+
 function getUrl(){
   chrome.tabs.getSelected(null, function(tab) {
     var url = tab.url;
-    getHighlight();
     document.getElementById('currentLink').innerHTML = url;
     chrome.extension.getBackgroundPage().storeUrl(url);
   });
@@ -20,11 +23,12 @@ function questionSearch(){
   chrome.extension.getBackgroundPage().saveQuestion(question);
 }
 
-function getHighlight() {
+function getHighlight(callback) {
 chrome.tabs.executeScript( {
                code: "window.getSelection().toString();"
            }, function(selection) {
 
               chrome.extension.getBackgroundPage().saveHighlight(selection);
            });
+           callback();
          }
