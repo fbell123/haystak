@@ -8,26 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function getUrl(){
   chrome.tabs.getSelected(null, function(tab) {
-    document.getElementById('currentLink').innerHTML = tab.url;
     var url = tab.url;
-    saveUrl(url);
+    document.getElementById('currentLink').innerHTML = url;
+    chrome.extension.getBackgroundPage().storeUrl(url);
   });
-}
-
-function search(question) {
-  question.split(' ').join('+');
-  chrome.tabs.update({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
-}
-
-function saveQuestion(question){
-  chrome.extension.getBackgroundPage().storeQuestion(question);
-  search(question);
-}
-function saveUrl(url){
-  chrome.extension.getBackgroundPage().storeUrl(url);
 }
 
 function questionSearch(){
   var question = document.getElementById('question').value;
-  saveQuestion(question);
+  chrome.extension.getBackgroundPage().saveQuestion(question);
 }
