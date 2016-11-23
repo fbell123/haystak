@@ -14,19 +14,25 @@ function storeQuestion (question) {
 
 function storeUrl (url) {
   temporary["url"] = url;
-  chrome.tabs.executeScript( {
-                code: "window.getSelection().toString();"
-            }, function(selection) {
-                console.log(selection);
-            });
+  // chrome.tabs.executeScript( {
+  //               code: "window.getSelection().toString();"
+  //           }, function(selection) {
+  //               console.log(selection);
+  //           });
   localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
-};
+}
+
 function search(question) {
   question.split(' ').join('+');
   chrome.tabs.update({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
 }
 
 function saveQuestion(question){
-  chrome.extension.getBackgroundPage().storeQuestion(question);
+storeQuestion(question);
   search(question);
+}
+
+function saveHighlight(selection) {
+  console.log(selection);
+  temporary["data"]["highlight"] = selection;
 }
