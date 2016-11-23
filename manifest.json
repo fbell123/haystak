@@ -14,21 +14,21 @@
     {
       "matches": ["<all_urls>"],
       "js": ["popup.js", "jquery.js"]
-      }
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js", "popup.js"
     ],
-    "background": {
-      "scripts": [
-        "background.js", "popup.js"
-      ],
-      "persistent": false
-    },
+    "persistent": false
+  },
 
   "permissions": [
     "*://*.google.com/*",
-     "background",
-      "activeTab",
-      "tabs",
-      "https://ajax.googleapis.com/",
-      "storage"
+    "background",
+    "activeTab",
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "storage"
   ]
 }
