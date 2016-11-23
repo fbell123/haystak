@@ -1,6 +1,6 @@
 window.onload = function(){
 console.log(0);
-retrieve(retrieveGoogleUrls);
+retrieve();
 console.log(2);
 };
 
@@ -14,16 +14,19 @@ var retrieveGoogleUrls = function(callback){
    array.push(links[i].href);
  }
  console.log(array);
- callback();{
-   chrome.runtime.sendMessage({mesage: "array"}, array, function(response) {
-     console.log(response.urlMatches);
-   });
-    return array;
- }
+ callback();
+  return array;
+  };
 };
 
-retrieve = function(retrieveGoogleUrls) {
-};
+function messageBackground(){
+  chrome.runtime.sendMessage({mesage: "array"}, array, function(response) {
+    console.log(response.urlMatches);
+}
+
+function retrieve(){
+    retrieveGoogleUrls(messageBackground)
+}
 
   // var compareArrays = function(){
   //   var matches = []
