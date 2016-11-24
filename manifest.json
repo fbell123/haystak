@@ -4,13 +4,16 @@
   "name": "Haysta:K",
   "description": "This extension helps developers efficiently find answers to FAQ's & PAQ's",
   "version": "0.1",
+  "chrome_url_overrides": {
+    "newtab": "haystack.html"
+  },
 
   "content_scripts": [
   {
     "matches": [
       "<all_urls>"
     ],
-    "js": ["jquery.js", "content.js", "popup.js"]
+    "js": ["jquery.js", "content.js", "popup.js", "needle.js"]
   }
 ],
 
@@ -19,16 +22,9 @@
     "default_popup": "popup.html",
     "default_title": "Click here!"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["popup.js", "jquery.js"]
-    }
-  ],
+
   "background": {
-    "scripts": [
-      "background.js", "popup.js"
-    ],
+    "scripts": ["background.js", "popup.js", "needle.js"],
     "persistent": false
   },
 
