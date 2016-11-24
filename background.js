@@ -10,7 +10,21 @@ var temporary = {
 
 function storeQuestion (question) {
    temporary["data"]["question"] = question;
-};
+}
+
+chrome.runtime.onMessage.addListener(
+  function(request) {
+    if (request.type === "save_highlight") {
+  saveHighlight(request.data);
+    }
+    else if (request.type === "save_question") {
+      saveQuestion(request.data);
+    }
+    else if (request.type === "save_url") {
+      storeUrl(request.data);
+    }
+  });
+
 
 var values = [];
 var getUrls = function(){
@@ -78,6 +92,5 @@ storeQuestion(question);
 }
 
 function saveHighlight(selection) {
-  console.log(selection);
   temporary["data"]["highlight"] = selection;
 }
