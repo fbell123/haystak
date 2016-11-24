@@ -17,7 +17,7 @@ function retrieveGoogleUrls (){
  }
  console.log(array);
  callback();
- console.log(3)
+ console.log(3);
 };
  // callback();
   return array;
@@ -28,15 +28,12 @@ function retrieve(){
 }
 
 function messageBackground(){
-  console.log(4)
-  chrome.runtime.sendMessage({type: "sendArray", data: array}
-  // ,
-  //     function(response){
-  //       var urls = response.urlMatches;
-  //       injectNeedleIcon(urls);
-  //   }
-  );
-  console.log(5)
+  console.log(4);
+  chrome.runtime.sendMessage({type: "sendArray", data: array}, function(response){
+      console.log(response);
+      injectNeedleIcon(response);
+    });
+  console.log(5);
 }
 
 function injectNeedleIcon(){
@@ -49,9 +46,16 @@ function injectNeedleIcon(){
   console.log(1);
   var div = document.createElement('span');
   div.appendChild(img);
+<<<<<<< HEAD
   console.log(div);
   console.log(3);
     document.querySelector("a[href='" + url[i] + "']").appendChild(div);
     console.log(4);
 }
+=======
+  for(i=0; i<url.length; i++) {
+    document.querySelector("a[href='"+url[i]+"']").appendChild(div);
+
+  }
+>>>>>>> 28a1805c6979fe92706e9c775d88b49972a9514a
 }
