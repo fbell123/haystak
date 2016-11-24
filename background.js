@@ -14,6 +14,7 @@ function storeQuestion (question) {
 
 chrome.runtime.onMessage.addListener(
   function(request) {
+
     if (request.type === "save_highlight") {
       saveHighlight(request.data);
     }

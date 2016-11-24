@@ -5,7 +5,7 @@ console.log(2);
 });
 
 
-var array = [];
+var array = ["test"];
 
 var matchedUrl = [];
 
@@ -16,6 +16,9 @@ function retrieveGoogleUrls (){
    array.push(links[i].href);
  }
  console.log(array);
+ callback();
+ console.log(3)
+};
  // callback();
   return array;
 }
@@ -24,16 +27,17 @@ function retrieve(){
   retrieveGoogleUrls();
 }
 
-//
-// function messageBackground(){
-//   chrome.runtime.sendMessage({message: "sendArray", urlArray: array},
-//     //   function(response){
-//     //     // var urls = response.urlMatches;
-//     //     injectNeedleIcon(urls);
-//   //   // }
-//   // );
-// }
-
+function messageBackground(){
+  console.log(4)
+  chrome.runtime.sendMessage({type: "sendArray", data: array}
+  // ,
+  //     function(response){
+  //       var urls = response.urlMatches;
+  //       injectNeedleIcon(urls);
+  //   }
+  );
+  console.log(5)
+}
 
 function injectNeedleIcon(){
   url = ["https://en.wikipedia.org/wiki/Pepper", "https://www.peppergroup.co.uk/about-us/contact-us", "http://www.peppercorp.com/"];
