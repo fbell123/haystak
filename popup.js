@@ -26,7 +26,6 @@ function getHighlight(callback) {
   chrome.tabs.executeScript( {
     code: "window.getSelection().toString();"
   }, function(selection) {
-    console.log(selection);
     chrome.runtime.sendMessage({ type: "save_highlight", data: selection});
     callback();
   });
