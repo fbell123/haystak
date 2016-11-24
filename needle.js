@@ -2,10 +2,7 @@ $(document).ready(function(){
   retrieve();
 });
 
-
-var array = ["test"];
-
-var matchedUrl = [];
+var array = [];
 
 function retrieveGoogleUrls (callback){
   console.log(5);
