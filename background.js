@@ -1,9 +1,26 @@
-var storeQuestion = function (question) {
-  localStorage.setItem('newest question', JSON.stringify(question));
+var temporary = {
+  "data": {
+    "question": "",
+    "tag": "",
+    "highlight": ""
+  },
+  "url": ""
 };
 
-var storeUrl= function (url) {
-  var retrievedQuestion = JSON.parse(localStorage.getItem('newest question'));
-  localStorage.setItem(retrievedQuestion,url);
-  retrievedQuestion = nil;
+function storeQuestion (question) {
+   temporary["data"]["question"] = question;
 };
+
+function storeUrl (url) {
+  temporary["url"] = url;
+  localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
+};
+function search(question) {
+  question.split(' ').join('+');
+  chrome.tabs.update({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
+}
+
+function saveQuestion(question){
+  chrome.extension.getBackgroundPage().storeQuestion(question);
+  search(question);
+}
