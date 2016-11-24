@@ -14,14 +14,22 @@ function storeQuestion (question) {
 
 chrome.runtime.onMessage.addListener(
   function(request) {
-    if (request.type === "save_highlight") {
-  saveHighlight(request.data);
-    }
-    else if (request.type === "save_question") {
-      saveQuestion(request.data);
-    }
-    else if (request.type === "save_url") {
-      storeUrl(request.data);
+  //   if (request.type === "save_highlight") {
+  // saveHighlight(request.data);
+  //   }
+  //   else if (request.type === "save_question") {
+  //     saveQuestion(request.data);
+  //   }
+  //   else if (request.type === "save_url") {
+  //     storeUrl(request.data);
+  //   }
+  //   else
+  console.log(6)
+     if (request.type === "sendArray"){
+  console.log(7)
+
+      var test = request.data
+      console.log(test)
     }
   });
 

@@ -1,11 +1,13 @@
-window.onload = function(){
+//content script
+console.log(-1)
+$(document).ready(function(){
 console.log(0);
 retrieve();
 console.log(2);
-};
+});
 
 
-var array = [];
+var array = ["test"];
 
 var matchedUrl = [];
 
@@ -17,7 +19,7 @@ var retrieveGoogleUrls = function(callback){
  }
  console.log(array);
  callback();
-  return array;
+ console.log(3)
 };
 
 function retrieve(){
@@ -26,21 +28,24 @@ function retrieve(){
 
 
 function messageBackground(){
-  chrome.runtime.sendMessage({message: "sendArray", urlArray: array},
-      function(response){
-        var urls = response.urlMatches;
-        injectNeedleIcon(urls);
-    }
+  console.log(4)
+  chrome.runtime.sendMessage({type: "sendArray", data: array}
+  // ,
+  //     function(response){
+  //       var urls = response.urlMatches;
+  //       injectNeedleIcon(urls);
+  //   }
   );
+  console.log(5)
 }
 
 
 function injectNeedleIcon(url){
-  var img = document.createElement('img');
-  img.src = 'logo.png';
-  var div = document.createElement('div');
-  div.appendChild(img);
-  for(i=0; i<url.length; i++) {
-    document.querySelector("a[href='"url[i]"']").appendChild(div);
-  }
+  // var img = document.createElement('img');
+  // img.src = 'logo.png';
+  // var div = document.createElement('div');
+  // div.appendChild(img);
+  // for(i=0; i<url.length; i++) {
+  //   document.querySelector("a[href='"url[i]"']").appendChild(div);
+  // }
 }
