@@ -1,0 +1,62 @@
+* {
+  font-family: "Trebuchet MS", helvetica, sans-serif;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 5em;
+}
+p {
+  font-size: 1.2em;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+#search-history {
+  margin-top: 0;
+  list-style: none;
+  color: #ffffff;
+  padding: 2.5%;
+  padding-top: 0;
+}
+#header-section {
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#body-section {
+  width: 100%;
+  background-color: #123456;
+}
+ul#search-history {
+}
+a:link, a:visited {
+  font-size: 1.35em;
+  color: #ff0;
+}
+a:hover {
+  color: #fff;
+   transition: all 1s;
+}
+li {
+}
+.parralax {
+  display: inline-block;
+  top: 0;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #ff0022;
+  background: -webkit-linear-gradient(left top, red, pink); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, pink); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, red, pink); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, red, pink);
+  margin: 0;
+  width: 100%;
+  color: #ffffff;
+  height: 100%;
+  position: fixed;
+}
