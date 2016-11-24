@@ -17,16 +17,18 @@ chrome.runtime.onMessage.addListener(
     if (request.type === "save_highlight") {
       saveHighlight(request.data);
     }
-    else if (request.type === "save_question") {
+    if (request.type === "save_question") {
+      console.log(request.data);
       saveQuestion(request.data);
     }
-    else if (request.type === "save_url") {
+    if (request.type === "save_url") {
       storeUrl(request.data);
     }
   });
 
 
   function storeUrl (url) {
+    console.log(temporary["data"]);
     temporary["url"] = url;
     localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
   }
