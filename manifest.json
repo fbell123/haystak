@@ -17,9 +17,7 @@
     }
   ],
   "background": {
-    "scripts": [
-      "background.js", "popup.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": false
   },
 

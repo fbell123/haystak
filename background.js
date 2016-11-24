@@ -17,21 +17,9 @@ var getUrls = function(){
     values.push (localStorage.getItem(keys[i]));
   }
   return values;
-}
+};
 
-var matchedUrls = []
-
-chrome.runtime.onMessage.addListener(function(message, sender, response)) {
-  if (message.message == "array") {
-    getUrls();
-    values.forEach {|value|
-    if (sender.includes(value)) {
-      matchedUrls.push(value);
-      console.log(matchedUrls);
-    }
-  }
-}
-
+var matchedUrls = [];
 
 if (!Array.prototype.includes) {
  Array.prototype.includes = function(searchElement /*, fromIndex*/) {
