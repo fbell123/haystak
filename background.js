@@ -32,6 +32,7 @@ chrome.runtime.onMessage.addListener(
            sendResponse(
              matchedUrls
      );
+      matchedUrls = [];
    }
  });
 
