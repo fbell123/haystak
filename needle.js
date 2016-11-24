@@ -11,7 +11,7 @@ var array = ["test"];
 
 var matchedUrl = [];
 
-var retrieveGoogleUrls = function(callback){
+function retrieveGoogleUrls (){
   console.log(1);
   var links = document.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
@@ -21,11 +21,13 @@ var retrieveGoogleUrls = function(callback){
  callback();
  console.log(3)
 };
-
-function retrieve(){
-  retrieveGoogleUrls(messageBackground);
+ // callback();
+  return array;
 }
 
+function retrieve(){
+  retrieveGoogleUrls();
+}
 
 function messageBackground(){
   console.log(4)
@@ -39,13 +41,12 @@ function messageBackground(){
   console.log(5)
 }
 
-
 function injectNeedleIcon(url){
-  // var img = document.createElement('img');
-  // img.src = 'logo.png';
-  // var div = document.createElement('div');
-  // div.appendChild(img);
-  // for(i=0; i<url.length; i++) {
-  //   document.querySelector("a[href='"url[i]"']").appendChild(div);
-  // }
+  var img = document.createElement('img');
+  img.src = 'logo.png';
+  var div = document.createElement('div');
+  div.appendChild(img);
+  for(i=0; i<url.length; i++) {
+    document.querySelector("a[href='" +url[i] + "']").appendChild(div);
+  }
 }
