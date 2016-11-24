@@ -4,6 +4,18 @@
   "name": "Haysta:K",
   "description": "This extension helps developers efficiently find answers to FAQ's & PAQ's",
   "version": "0.1",
+  "chrome_url_overrides": {
+    "newtab": "haystack.html"
+  },
+
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["jquery.js", "content.js", "popup.js"]
+  }
+],
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -23,10 +35,10 @@
 
   "permissions": [
     "*://*.google.com/*",
-    "background",
     "activeTab",
     "tabs",
     "https://ajax.googleapis.com/",
     "storage"
   ]
+
 }
