@@ -9,7 +9,7 @@ var temporary = {
 };
 
 function storeQuestion (question) {
-   temporary["data"]["question"] = question;
+  temporary["data"]["question"] = question;
 }
 
 chrome.runtime.onMessage.addListener(
@@ -35,8 +35,6 @@ chrome.runtime.onMessage.addListener(
    }
  });
 
-  var matchedUrls = [];
-
 var matchUrls = function (requestData){
   var googleUrls = requestData;
   var storedUrls = getUrls();
@@ -53,14 +51,9 @@ var getUrls = function(){
     return Object.keys(localStorage);
 };
 
-
 function storeUrl (url) {
+  console.log(temporary["data"]);
   temporary["url"] = url;
-  // chrome.tabs.executeScript( {
-  //               code: "window.getSelection().toString();"
-  //           }, function(selection) {
-  //               console.log(selection);
-  //           });
   localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
 }
 
@@ -70,13 +63,16 @@ function search(question) {
 }
 
 function saveQuestion(question){
-storeQuestion(question);
+  storeQuestion(question);
   search(question);
 }
 
 function saveHighlight(selection) {
   temporary["data"]["highlight"] = selection;
 }
+
+
+  var matchedUrls = [];
 
 Array.prototype.includes = function(searchElement) {
   if (this.indexOf(searchElement) === -1) {
@@ -85,36 +81,3 @@ Array.prototype.includes = function(searchElement) {
     return true;
   }
 };
-
-// if (!Array.prototype.includes) {
-//   Array.prototype.includes = function(searchElement /*, fromIndex*/) {
-//     'use strict';
-//     if (this === null) {
-//       throw new TypeError('Array.prototype.includes called on null or undefined');
-//     }
-//
-//     var O = Object(this);
-//     var len = parseInt(O.length, 10) || 0;
-//     if (len === 0) {
-//       return false;
-//     }
-//     var n = parseInt(arguments[1], 10) || 0;
-//     var k;
-//     if (n >= 0) {
-//       k = n;
-//     } else {
-//       k = len + n;
-//       if (k < 0) {k = 0;}
-//     }
-//     var currentElement;
-//     while (k < len) {
-//       currentElement = O[k];
-//       if (searchElement === currentElement ||
-//         (searchElement !== searchElement && currentElement !== currentElement)) { // NaN !== NaN
-//           return true;
-//         }
-//         k++;
-//       }
-//       return false;
-//     };
-//   }
