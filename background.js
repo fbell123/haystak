@@ -23,17 +23,19 @@ chrome.runtime.onMessage.addListener(
     if (request.type === "save_url") {
       storeUrl(request.data);
     }
-  console.log(6);
-     if (request.type === "sendArray"){
-  // console.log(7);
-        matchUrls(request.data);
-        sendResponse({
-          response: "matchedUrls", data: matchedUrls
-        });
-      }
   });
 
-  var matchedUrls = [100];
+  chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if (request.type === "sendArray"){
+           matchUrls(request.data);
+           sendResponse(
+             matchedUrls
+     );
+   }
+ });
+
+  var matchedUrls = [];
 
 var matchUrls = function (requestData){
   var googleUrls = requestData;

@@ -29,9 +29,9 @@ function retrieve(){
 
 function messageBackground(){
   console.log(4);
-  chrome.runtime.sendMessage({type: "sendArray", data: array},
-      function(response){
-        console.log(response.data);
+  chrome.runtime.sendMessage({type: "sendArray", data: array}, function(response){
+      console.log(response);
+      injectNeedleIcon(response);
     });
   console.log(5);
 }
