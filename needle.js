@@ -9,30 +9,30 @@ var array = [];
 
 var matchedUrl = [];
 
-var retrieveGoogleUrls = function(callback){
+function retrieveGoogleUrls (){
   console.log(1);
   var links = document.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
    array.push(links[i].href);
  }
  console.log(array);
- callback();
+ // callback();
   return array;
-};
+}
 
 function retrieve(){
-  retrieveGoogleUrls(messageBackground);
+  retrieveGoogleUrls();
 }
 
-
-function messageBackground(){
-  chrome.runtime.sendMessage({message: "sendArray", urlArray: array},
-      function(response){
-        var urls = response.urlMatches;
-        injectNeedleIcon(urls);
-    }
-  );
-}
+//
+// function messageBackground(){
+//   chrome.runtime.sendMessage({message: "sendArray", urlArray: array},
+//     //   function(response){
+//     //     // var urls = response.urlMatches;
+//     //     injectNeedleIcon(urls);
+//   //   // }
+//   // );
+// }
 
 
 function injectNeedleIcon(url){
@@ -41,6 +41,6 @@ function injectNeedleIcon(url){
   var div = document.createElement('div');
   div.appendChild(img);
   for(i=0; i<url.length; i++) {
-    document.querySelector("a[href='"url[i]"']").appendChild(div);
+    document.querySelector("a[href='" +url[i] + "']").appendChild(div);
   }
 }
