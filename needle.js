@@ -1,5 +1,5 @@
 //content script
-console.log(-1)
+console.log(-1);
 $(document).ready(function(){
 console.log(0);
 retrieve();
@@ -19,7 +19,7 @@ function retrieveGoogleUrls (){
  }
  console.log(array);
  callback();
- console.log(3)
+ console.log(3);
 };
  // callback();
   return array;
@@ -30,15 +30,12 @@ function retrieve(){
 }
 
 function messageBackground(){
-  console.log(4)
-  chrome.runtime.sendMessage({type: "sendArray", data: array}
-  // ,
-  //     function(response){
-  //       var urls = response.urlMatches;
-  //       injectNeedleIcon(urls);
-  //   }
-  );
-  console.log(5)
+  console.log(4);
+  chrome.runtime.sendMessage({type: "sendArray", data: array}, function(response){
+      console.log(response);
+      injectNeedleIcon(response);
+    });
+  console.log(5);
 }
 
 function injectNeedleIcon(url){
@@ -47,6 +44,7 @@ function injectNeedleIcon(url){
   var div = document.createElement('div');
   div.appendChild(img);
   for(i=0; i<url.length; i++) {
-    document.querySelector("a[href='" +url[i] + "']").appendChild(div);
+    document.querySelector("a[href='"+url[i]+"']").appendChild(div);
+
   }
 }
