@@ -24,6 +24,9 @@ chrome.runtime.onMessage.addListener(
     if (request.type === "save_url") {
       storeUrl(request.data);
     }
+    if (request.type === "save_tag") {
+      saveTag(request.data);
+    }
   });
 
   chrome.runtime.onMessage.addListener(
@@ -77,6 +80,11 @@ function saveQuestion(question){
 
 function saveHighlight(selection) {
   temporary.data.highlight = selection;
+}
+
+function saveTag(tag) {
+  temporary["data"]["tag"] = tag;
+  console.log(tag)
 }
 
 Array.prototype.includes = function(searchElement) {

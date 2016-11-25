@@ -2,13 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
+    // document.getElementById('save_url').addEventListener('click', saveSearch);
   }
 );
 });
 
 function saveSearch() {
+  getTag();
   getHighlight(getUrl);
 }
+
 function getUrl(){
   chrome.tabs.getSelected(null, function(tab) {
     var url = tab.url;
@@ -16,6 +19,13 @@ function getUrl(){
     chrome.runtime.sendMessage({ type: "save_url", data: url});
   });
 }
+
+
+function getTag(){
+  var tag = document.getElementById('tag').value;
+  chrome.runtime.sendMessage({ type: "save_tag", data: tag});
+}
+
 
 function questionSearch(){
   var question = document.getElementById('question').value;
