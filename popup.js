@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
     document.getElementById('showHistory').addEventListener('click', showHaystak);
+    document.getElementById('helpPage').addEventListener('click', showHelp);
   }
 );
 });
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function saveSearch() {
   getTag();
   getHighlight(getUrl);
+  window.close();
 }
 
 function getUrl(){
@@ -46,4 +48,7 @@ function getHighlight(callback) {
 
 function showHaystak(){
  chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystack.html?" });
+}
+function showHelp(){
+ chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/instructions.html?" });
 }
