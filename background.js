@@ -14,11 +14,11 @@ function storeQuestion (question) {
 
 chrome.runtime.onMessage.addListener(
   function(request) {
-    if (request.type === "save_highlight") {
-  saveHighlight(request.data);
-    }
     if (request.type === "save_question") {
       saveQuestion(request.data);
+    }
+    if (request.type === "save_highlight") {
+      saveHighlight(request.data);
     }
     if (request.type === "save_url") {
       storeUrl(request.data);
@@ -29,6 +29,7 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.type === "sendArray"){
            matchUrls(request.data);
+            console.log(matchedUrls);
            sendResponse(
              matchedUrls
      );
