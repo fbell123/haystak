@@ -8,16 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function saveSearch() {
-  console.log("test");
-  console.log(getTag.toString())
   getTag();
-  console.log(1);
   getHighlight(getUrl);
 }
+
 function getUrl(){
   chrome.tabs.getSelected(null, function(tab) {
     var url = tab.url;
-    console.log(tab.url)
     document.getElementById('currentLink').innerHTML = url;
     chrome.runtime.sendMessage({ type: "save_url", data: url});
   });
@@ -25,9 +22,7 @@ function getUrl(){
 
 
 function getTag(){
-  console.log("hello");
   var tag = document.getElementById('tag').value;
-  console.log(tag);
   chrome.runtime.sendMessage({ type: "save_tag", data: tag});
 }
 
