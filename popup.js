@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
@@ -5,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 );
 });
+
 
 function saveSearch() {
   getHighlight(getUrl);

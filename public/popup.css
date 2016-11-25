@@ -1,10 +1,72 @@
 body {
-  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-  font-size: 100%;
+  width: 175px;
+  height: 175px;
 }
-#status {
-  white-space: pre;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  max-width: 400px;
+
+.home-menu {
+  margin: 0;
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+    width: 100px;
+}
+.pure-menu.pure-menu-fixed {
+    border-bottom: none;
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+    outline: none;
+}
+
+.splash-container {
+    background: #ffdb4d;
+    z-index: 1;
+    overflow: hidden;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
+
+.splash {
+    /* absolute center .splash within .splash-container */
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 60px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#search, #save_url {
+  color: #ffffff;
+  background-color: #2d3e50;
+  border: none;
+  border-radius: 2px;
+  padding: 6px;
+  width: 64px;
+}
+#search:hover, #save_url:hover {
+  color: #ffdb4d;
+}
+input#question {
+  background: none;
+  outline: none;
+  margin: 0;
+  border: 0;
+  color: #2d3e50;
+}
+input#question::placeholder {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2em;
 }
