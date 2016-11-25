@@ -11,10 +11,7 @@ var listHistory = function (list) {
    var obj = JSON.parse(keyValue);
    var questionValue = obj.question;
    var highlightValue = obj.highlight;
-   var questionAnswerPair = "<li>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<p>Your question: " + questionValue + "<br>Your selected answer: " + highlightValue + "</p><br><br></li>";
+   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<br><div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue + "</div></div><br></li>";
    list.innerHTML += questionAnswerPair;
  }
 };
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('question').addEventListener('click', searchField);
-});

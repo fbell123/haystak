@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
+    document.getElementById('showHistory').addEventListener('click', showHaystak);
   }
 );
 });
@@ -32,4 +33,9 @@ function getHighlight(callback) {
     chrome.runtime.sendMessage({ type: "save_highlight", data: selection});
     callback();
   });
+}
+
+function showHaystak(){
+ console.log(chrome.runtime.id);
+ chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystack.html?" });
 }
