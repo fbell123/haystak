@@ -35,10 +35,10 @@ function getUrl(){
   });
 }
 
-function questionSearch(){
-  var question = document.getElementById('question').value;
-  chrome.runtime.sendMessage({ type: "save_question", data: question});
-}
+// function questionSearch(){
+//   var question = document.getElementById('question').value;
+//   chrome.runtime.sendMessage({ type: "save_question", data: question});
+// }
 
 function getHighlight(callback) {
   chrome.tabs.executeScript( {
@@ -50,11 +50,14 @@ function getHighlight(callback) {
   });
 }
 function searchField () {
-    $("input#question").keypress(function (questionSearch) {
+    $("input#question").keypress(function (e) {
+      var question = document.getElementById('question').value;
+      chrome.runtime.sendMessage({ type: "save_question", data: question});
+      e.preventDefault()
       // if(e.which == 13) {
       //     //submit form via ajax, this is not JS but server side scripting so not showing here
       //     $("#chatbox").append($(this).val() + "<br/>");
       //     $(this).val("");
-      questionSearch();
+      // questionSearch();
     });
 }
