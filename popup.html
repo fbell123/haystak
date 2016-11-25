@@ -12,9 +12,13 @@
 </head>
 <body>
 
-  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-    <a class="pure-menu-heading" id="showHistory" href="">Haysta:k</a><br>
-
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+          <a class="pure-menu-heading" id="showHistory" href="">Haysta:k</a>
+          <ul class="pure-menu-list">
+              <li><i class="fa fa-question-circle" aria-hidden="true" id="helpPage" href=""></i></li>
+          </ul>
+      </div>
   </div>
 
   <div class="splash-container">
@@ -23,14 +27,14 @@
       <form class="search-form">
         <input id="question" type="textarea" cols="80" name="" placeholder="Search Google"><br><br>
         <input type="submit" id="search" name="" value="Search">
-        <button type="button" id="save_url" value="Save">Save</button>
+        <button type="button" id="save_url" value="Save">Save</button><br><br>
       </form>
       <label for="" name="note"><span id="question_text"></span></label>
       <p id="currentLink" style="display:none;"></p>
+      <form class="saving-form">
+        <input id="tag" type="textarea" cols="80" name="" placeholder="Add tags">
+      </form>
     </div>
-    <form class="saving-form">
-      <input id="tag" type="textarea" cols="80" name="" placeholder="Add tags">
-    </form>
   </div>
   <p id="history">
   </p>
