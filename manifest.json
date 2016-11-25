@@ -13,7 +13,8 @@
     "matches": [
       "<all_urls>"
     ],
-    "js": ["jquery.js", "needle.js"]
+    "js": ["jquery.js", "needle.js"],
+    "css": ["./public/needle.css"]
   }
 ],
 
