@@ -35,6 +35,7 @@ function getTag(){
 function questionSearch(){
   var question = document.getElementById('question').value;
   chrome.runtime.sendMessage({ type: "save_question", data: question});
+  window.close();
 }
 
 function getHighlight(callback) {
@@ -48,7 +49,9 @@ function getHighlight(callback) {
 
 function showHaystak(){
  chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystack.html?" });
+ window.close();
 }
 function showHelp(){
  chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/instructions.html?" });
+ window.close();
 }
