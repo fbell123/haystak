@@ -36,15 +36,21 @@ chrome.runtime.onMessage.addListener(
    }
  });
 
+var matchedUrls = [];
+
 var matchUrls = function (requestData){
   var googleUrls = requestData;
   var storedUrls = getUrls();
   googleUrls.forEach(function(url){
     if (storedUrls.includes(url) === true) {
-      matchedUrls.push(url);
+      var match = {
+        [url]: localStorage[url]
+      }
+      matchedUrls.push(match);
+      console.log(match)
     }
   });
-  console.log(matchedUrls);
+  console.log(matchedUrls)
 };
 
 
@@ -53,7 +59,6 @@ var getUrls = function(){
 };
 
 function storeUrl (url) {
-  console.log(temporary["data"]);
   temporary["url"] = url;
   localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
 }
@@ -71,9 +76,6 @@ function saveQuestion(question){
 function saveHighlight(selection) {
   temporary["data"]["highlight"] = selection;
 }
-
-
-  var matchedUrls = [];
 
 Array.prototype.includes = function(searchElement) {
   if (this.indexOf(searchElement) === -1) {
