@@ -1,6 +1,6 @@
-$(document).ready(function(){
+window.onload = function() {
   retrieve();
-});
+};
 
 var array = [];
 

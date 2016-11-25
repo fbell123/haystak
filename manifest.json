@@ -13,24 +13,24 @@
     "matches": [
       "<all_urls>"
     ],
-    "js": ["jquery.js", "needle.js"]
+    "js": ["jquery.js", "needle.js", "haystack.js"]
   }
 ],
 
   "browser_action": {
     "default_icon": "logoicon.png",
     "default_popup": "popup.html",
-    "default_title": "Click here!"
+    "default_title": "Haysta:k"
   },
   "web_accessible_resources": ["logoicon.png"],
 
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
 
   "permissions": [
-    "*://*.google.com/*",
+
     "activeTab",
     "tabs",
     "https://ajax.googleapis.com/",
