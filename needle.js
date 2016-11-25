@@ -1,38 +1,54 @@
-window.onload = function(){
+console.log(1);
+
+$(document).ready(function(){
+  console.log(2);
   retrieve();
-};
+});
 
 var array = [];
 
 function retrieveGoogleUrls (callback){
+  console.log('4 googlelinks');
   var links = document.getElementsByTagName("a");
   for(var i=0; i<links.length; i++) {
     array.push(links[i].href);
   }
   callback();
+  console.log(array);
 }
 
 function retrieve(){
+  console.log(3);
   retrieveGoogleUrls(messageBackground);
 }
 
 function messageBackground(){
+  console.log('5 send message');
   chrome.runtime.sendMessage({type: "sendArray", data: array}, function(response){
+    console.log(6);
+    console.log(response);
     useMatches(response, injectNeedleIcon);
   });
 }
 
 function useMatches (response, callback) {
+  console.log('7 use matches');
+  console.log(response);
   var url = response.map(function(x){
+    console.log(8);
     return Object.keys(x);
   });
   var value = response.map(function(x){
+    console.log(9);
     return Object.values(x);
   });
+  console.log(url);
+  console.log(value);
   callback(url, value);
 }
 
 function injectNeedleIcon(url, value){
+  console.log(10);
   console.log(url);
   console.log(value);
   url = [].concat.apply([], url);

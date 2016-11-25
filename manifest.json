@@ -14,7 +14,7 @@
       "http://www.google.com/*", "https://www.google.com/*",
       "http://www.google.co.uk/*", "https://www.google.co.uk/*"
     ],
-    "js": ["jquery.js", "needle.js", "haystack.js"]
+    "js": ["jquery.js", "needle.js"],
     "css": ["./public/needle.css"]
   }
 ],

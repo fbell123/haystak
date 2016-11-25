@@ -9,16 +9,17 @@ var temporary = {
 };
 
 function storeQuestion (question) {
-  temporary["data"]["question"] = question;
+  temporary.data.question = question;
+  // localStorage.setItem(temporary.data.question);
 }
 
 chrome.runtime.onMessage.addListener(
   function(request) {
-    if (request.type === "save_highlight") {
-  saveHighlight(request.data);
-    }
     if (request.type === "save_question") {
       saveQuestion(request.data);
+    }
+    if (request.type === "save_highlight") {
+      saveHighlight(request.data);
     }
     if (request.type === "save_url") {
       storeUrl(request.data);
@@ -29,6 +30,7 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.type === "sendArray"){
            matchUrls(request.data);
+            console.log(matchedUrls);
            sendResponse(
              matchedUrls
      );
@@ -59,8 +61,8 @@ var getUrls = function(){
 };
 
 function storeUrl (url) {
-  temporary["url"] = url;
-  localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
+  temporary.url = url;
+  localStorage.setItem(temporary.url, JSON.stringify(temporary.data));
 }
 
 function search(question) {
@@ -74,7 +76,7 @@ function saveQuestion(question){
 }
 
 function saveHighlight(selection) {
-  temporary["data"]["highlight"] = selection;
+  temporary.data.highlight = selection;
 }
 
 Array.prototype.includes = function(searchElement) {
