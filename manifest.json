@@ -14,7 +14,7 @@
       "http://www.google.com/*", "https://www.google.com/*",
       "http://www.google.co.uk/*", "https://www.google.co.uk/*"
     ],
-    "js": ["jquery.js", "needle.js"],
+    "js": ["jquery.js", "needle.js", "haystack.js"]
     "css": ["./public/needle.css"]
   }
 ],
@@ -22,17 +22,17 @@
   "browser_action": {
     "default_icon": "logoicon.png",
     "default_popup": "popup.html",
-    "default_title": "Click here!"
+    "default_title": "Haysta:k"
   },
   "web_accessible_resources": ["logoicon.png"],
 
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js", "jquery.js"],
+    "persistent": true
   },
 
   "permissions": [
-    "*://*.google.com/*",
+
     "activeTab",
     "tabs",
     "https://ajax.googleapis.com/",
