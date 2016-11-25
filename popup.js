@@ -48,7 +48,7 @@ function getHighlight(callback) {
 }
 
 function showHaystak(){
- chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystack.html?" });
+ chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystak.html?" });
  window.close();
 }
 function showHelp(){

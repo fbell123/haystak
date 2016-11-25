@@ -187,9 +187,11 @@ a.pure-button-primary {
 .footer {
     background: #111;
 }
-.haystack-icon {
-  height: 26px;
-  width: 26px;
+.haystak-icon {
+  width: 40px;
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 a:link, a:visited {
   color: #b300b3;

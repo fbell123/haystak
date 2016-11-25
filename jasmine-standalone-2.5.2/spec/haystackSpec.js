@@ -1,4 +1,4 @@
-describe('haystack', function (){
+describe('haystak', function (){
   var storage, pair;
 
 
