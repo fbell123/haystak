@@ -9,7 +9,8 @@ var temporary = {
 };
 
 function storeQuestion (question) {
-  temporary["data"]["question"] = question;
+  temporary.data.question = question;
+  // localStorage.setItem(temporary.data.question);
 }
 
 chrome.runtime.onMessage.addListener(
@@ -60,8 +61,8 @@ var getUrls = function(){
 };
 
 function storeUrl (url) {
-  temporary["url"] = url;
-  localStorage.setItem(temporary["url"],JSON.stringify(temporary["data"]));
+  temporary.url = url;
+  localStorage.setItem(temporary.url, JSON.stringify(temporary.data));
 }
 
 function search(question) {
@@ -75,7 +76,7 @@ function saveQuestion(question){
 }
 
 function saveHighlight(selection) {
-  temporary["data"]["highlight"] = selection;
+  temporary.data.highlight = selection;
 }
 
 Array.prototype.includes = function(searchElement) {
