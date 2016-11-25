@@ -1,11 +1,14 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
-    // document.getElementById('save_url').addEventListener('click', saveSearch);
+    document.getElementById('showHistory').addEventListener('click', showHaystak);
   }
 );
 });
+
 
 function saveSearch() {
   getTag();
@@ -39,4 +42,8 @@ function getHighlight(callback) {
     chrome.runtime.sendMessage({ type: "save_highlight", data: selection});
     callback();
   });
+}
+
+function showHaystak(){
+ chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystack.html?" });
 }

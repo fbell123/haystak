@@ -12,7 +12,7 @@ var listHistory = function (list) {
    var questionValue = obj.question;
    var highlightValue = obj.highlight;
    var tagValue = obj.tag;
-   var questionAnswerPair = "<li>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<p>Your question: " + questionValue + "<br>Your selected answer: " + highlightValue + "<br>Your tags: " + tagValue + "</p><br><br></li>";
+   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue +  "<br>Your tags: " + tagValue + "</div></div><br></li>";
    list.innerHTML += questionAnswerPair;
  }
 };

@@ -3,7 +3,7 @@ div#container {
   margin: 100px auto 0 auto;
   padding: 20px;
   background: #000;
-  border: 1px solid #1a1a1a;
+  border: none;
 }
 /* HOVER STYLES */
 div#pop-up {
@@ -11,8 +11,17 @@ div#pop-up {
   position: absolute;
   width: 280px;
   padding: 10px;
-  background: #eeeeee;
-  color: #000000;
-  border: 1px solid #1a1a1a;
-  font-size: 90%;
+  background: #ffdb4d;
+  color: #ffffff;
+  border: 1px #2d3e50 solid;
+  font-size: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.para-header {
+  color: #2d3e50;
+}
+.para-content {
+  font-size: 0.9em;
+  color: #537394;
 }
