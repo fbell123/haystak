@@ -11,7 +11,8 @@ var listHistory = function (list) {
    var obj = JSON.parse(keyValue);
    var questionValue = obj.question;
    var highlightValue = obj.highlight;
-   var questionAnswerPair = "<li>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<p>Your question: " + questionValue + "<br>Your selected answer: " + highlightValue + "</p><br><br></li>";
+   var tagValue = obj.tag;
+   var questionAnswerPair = "<li>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<p>Your question: " + questionValue + "<br>Your selected answer: " + highlightValue + "<br>Your tags: " + tagValue + "</p><br><br></li>";
    list.innerHTML += questionAnswerPair;
  }
 };
