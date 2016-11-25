@@ -187,7 +187,11 @@ a.pure-button-primary {
 .footer {
     background: #111;
 }
-
+.haystack-icon {
+  height: 26px;
+  width: 26px;
+  
+}
 a:link, a:visited {
   color: #b300b3;
   text-decoration: none;
@@ -209,7 +213,20 @@ a:hover {
 #question::placeholder {
   color: #ffffff;
 }
-
+.para-header {
+  color: #2d3e50;
+}
+.para-content {
+  font-size: 0.8em;
+  /*color: #537394;*/
+}
+.content-container {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 2%;
+  border: none;
+  margin: none;
+}
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
