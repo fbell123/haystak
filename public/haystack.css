@@ -226,6 +226,10 @@ a:hover {
   border: none;
   margin: none;
 }
+.para-content-tags {
+  font-size: 0.8em;
+  color: #537394;
+}
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some

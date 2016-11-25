@@ -4,7 +4,6 @@
   "name": "Haysta:K",
   "description": "This extension helps developers efficiently find answers to FAQ's & PAQ's",
   "version": "0.1",
-  },
 
   "content_scripts": [
   {
