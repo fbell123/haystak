@@ -12,13 +12,13 @@ var listHistory = function (list) {
    var questionValue = obj.question;
    var highlightValue = obj.highlight;
    var tagValue = obj.tag;
-   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue +  "</div>" + "<div class='para-header'>Tags:</div>" + "<div class='para-content-tags'>" + tagValue + "</div></div><button type='button' id='deleteButton'>Delete</button><br></li>";
+   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue +  "</div>" + "<div class='para-header'>Tags:</div>" + "<div class='para-content-tags'>" + tagValue + "</div><button type='button' id='deleteButton'>Delete</button><br></li><br>";
    list.innerHTML += questionAnswerPair;
-   document.getElementById('deleteButton').addEventListener('click', deletEntry(keyTitle));
  }
 };
 
-
-function deletEntry(keyTitle){
- localStorage.removeItem(keyTitle);
-}
+// document.getElementById('deleteButton').addEventListener('click', deletEntry(keyTitle));
+//
+// function deletEntry(keyTitle){
+//  localStorage.removeItem(keyTitle);
+// }
