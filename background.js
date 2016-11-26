@@ -1,4 +1,9 @@
 
+var q;
+var h;
+var t;
+var data;
+var questarray = [];
 var temporary = {
   "data": {
     "question": "",
@@ -8,24 +13,25 @@ var temporary = {
   "url": ""
 };
 
-function storeQuestion (question) {
-  temporary.data.question = question;
+function storeQuestion (question, callback) {
+  localStorage.setItem("newest question", question);
+  callback(question);
   // localStorage.setItem(temporary.data.question);
 }
 
 chrome.runtime.onMessage.addListener(
   function(request) {
     if (request.type === "save_question") {
-      saveQuestion(request.data);
+      storeQuestion (request.data, search);
     }
     if (request.type === "save_highlight") {
-      saveHighlight(request.data);
+      h = request.data;
     }
     if (request.type === "save_url") {
-      storeUrl(request.data);
+      storeUrl(request.data, saveItem);
     }
     if (request.type === "save_tag") {
-      saveTag(request.data);
+      t = request.data;
     }
   });
 
@@ -50,12 +56,12 @@ var matchUrls = function (requestData){
     if (storedUrls.includes(url) === true) {
       var match = {
         [url]: localStorage[url]
-      }
+      };
       matchedUrls.push(match);
-      console.log(match)
+      console.log(match);
     }
   });
-  console.log(matchedUrls)
+  console.log(matchedUrls);
 };
 
 
@@ -63,9 +69,23 @@ var getUrls = function(){
     return Object.keys(localStorage);
 };
 
-function storeUrl (url) {
-  temporary.url = url;
-  localStorage.setItem(temporary.url, JSON.stringify(temporary.data));
+function storeUrl (url, callback) {
+  console.log(q);
+  data = { question: q, highlight: h, tags: t};
+  console.log(data);
+  callback(url);
+}
+function saveItem(url) {
+  console.log(data);
+  var savedQuestion = localStorage.getItem("newest question");
+  // if (data.question !== undefined || data.question !== null) {
+  localStorage.setItem(url, JSON.stringify({ question: savedQuestion, highlight: data.highlight, tags:data.tags }));
+  // }
+  // else (storeUrl(url, saveItem));
+
+  console.log(JSON.stringify(data));
+  console.log(0);
+
 }
 
 function search(question) {
@@ -78,13 +98,13 @@ function saveQuestion(question){
   search(question);
 }
 
-function saveHighlight(selection) {
-  temporary.data.highlight = selection;
-}
+// function saveHighlight(selection) {
+//   temporary.data.highlight = selection;
+// }
 
 function saveTag(tag) {
   temporary["data"]["tag"] = tag;
-  console.log(tag)
+  console.log(tag);
 }
 
 Array.prototype.includes = function(searchElement) {
