@@ -46,7 +46,7 @@ function injectNeedleIcon(url, value){
     var spacePopUp = document.createElement('div');
     spacePopUp.setAttribute("id", "pop-up");
     var valueInfo = document.createElement('p');
-    valueInfo.innerHTML = "<div class='para-header'>Q:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).question + "</div>";
+    valueInfo.innerHTML = "<div class='header'><div class='home-menu pure-menu pure-menu-horizontal pure-menu-fixed'><div class='pure-menu-heading' href=''>Haysta:k</div></div></div><ul class='pure-menu-list'><br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).question + "</div>";
     var valueHighlight = document.createElement('p');
     valueHighlight.innerHTML = "<div class='para-header'>A:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).highlight + "</div>";
     spacePopUp.appendChild(valueInfo);
