@@ -37,80 +37,61 @@ chrome.runtime.onMessage.addListener(
 
   chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        if (request.type === "sendArray"){
-           matchUrls(request.data);
-            console.log(matchedUrls);
-           sendResponse(
-             matchedUrls
-     );
-      matchedUrls = [];
-   }
- });
+      if (request.type === "sendArray"){
+        matchUrls(request.data);
+        console.log(matchedUrls);
+        sendResponse(
+          matchedUrls
+        );
+        matchedUrls = [];
+      }
+    });
 
-var matchedUrls = [];
+    var matchedUrls = [];
 
-var matchUrls = function (requestData){
-  var googleUrls = requestData;
-  var storedUrls = getUrls();
-  googleUrls.forEach(function(url){
-    if (storedUrls.includes(url) === true) {
-      var match = {
-        [url]: localStorage[url]
-      };
-      matchedUrls.push(match);
-      console.log(match);
+    var matchUrls = function (requestData){
+      var googleUrls = requestData;
+      var storedUrls = getUrls();
+      googleUrls.forEach(function(url){
+        if (storedUrls.includes(url) === true) {
+          var match = {
+            [url]: localStorage[url]
+          };
+          matchedUrls.push(match);
+          console.log(match);
+        }
+      });
+      console.log(matchedUrls);
+    };
+
+
+    var getUrls = function(){
+      return Object.keys(localStorage);
+    };
+
+    function storeUrl (url, callback) {
+      data = { question: q, highlight: h, tags: t};
+      callback(url);
     }
-  });
-  console.log(matchedUrls);
-};
+    function saveItem(url) {
+      var savedQuestion = localStorage.getItem("newest question");
+      localStorage.setItem(url, JSON.stringify({ question: savedQuestion, highlight: data.highlight, tags:data.tags }));
+    }
 
+    function search(question) {
+      question.split(' ').join('+');
+      chrome.tabs.update({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
+    }
 
-var getUrls = function(){
-    return Object.keys(localStorage);
-};
+    function saveTag(tag) {
+      temporary["data"]["tag"] = tag;
+      console.log(tag);
+    }
 
-function storeUrl (url, callback) {
-  console.log(q);
-  data = { question: q, highlight: h, tags: t};
-  console.log(data);
-  callback(url);
-}
-function saveItem(url) {
-  console.log(data);
-  var savedQuestion = localStorage.getItem("newest question");
-  // if (data.question !== undefined || data.question !== null) {
-  localStorage.setItem(url, JSON.stringify({ question: savedQuestion, highlight: data.highlight, tags:data.tags }));
-  // }
-  // else (storeUrl(url, saveItem));
-
-  console.log(JSON.stringify(data));
-  console.log(0);
-
-}
-
-function search(question) {
-  question.split(' ').join('+');
-  chrome.tabs.update({"url": "https://www.google.co.uk/search?q="+question, "selected": true});
-}
-
-function saveQuestion(question){
-  storeQuestion(question);
-  search(question);
-}
-
-// function saveHighlight(selection) {
-//   temporary.data.highlight = selection;
-// }
-
-function saveTag(tag) {
-  temporary["data"]["tag"] = tag;
-  console.log(tag);
-}
-
-Array.prototype.includes = function(searchElement) {
-  if (this.indexOf(searchElement) === -1) {
-    return false;
-  } else {
-    return true;
-  }
-};
+    Array.prototype.includes = function(searchElement) {
+      if (this.indexOf(searchElement) === -1) {
+        return false;
+      } else {
+        return true;
+      }
+    };
