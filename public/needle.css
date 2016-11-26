@@ -11,17 +11,20 @@ div#pop-up {
   position: absolute;
   width: 280px;
   padding: 10px;
-  background: #ffdb4d;
+  background: #2d3e50;
   color: #ffffff;
   border: 1px #2d3e50 solid;
   font-size: 1.2em;
   border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .para-header {
-  color: #2d3e50;
+  color: #ffdb4d;
+
 }
 .para-content {
   font-size: 0.9em;
-  color: #537394;
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 0.7px;
 }
