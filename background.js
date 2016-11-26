@@ -1,22 +1,11 @@
 
-var q;
 var h;
 var t;
 var data;
-var questarray = [];
-var temporary = {
-  "data": {
-    "question": "",
-    "tag": "",
-    "highlight": ""
-  },
-  "url": ""
-};
 
 function storeQuestion (question, callback) {
   localStorage.setItem("newest question", question);
   callback(question);
-  // localStorage.setItem(temporary.data.question);
 }
 
 chrome.runtime.onMessage.addListener(
