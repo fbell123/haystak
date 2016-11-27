@@ -1,15 +1,25 @@
 
-
+var enabled;
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
     document.getElementById('showHistory').addEventListener('click', showHaystak);
     document.getElementById('helpPage').addEventListener('click', showHelp);
+    document.getElementById('onOff').addEventListener('click', onOff);
   }
 );
 });
-
+function onOff(){
+  enabled = !enabled;
+  if (enabled){
+    document.getElementById('currentLink').innerHTML = "ON";
+  }
+  if (!enabled) {
+      document.getElementById('currentLink').innerHTML = "OFF";
+  }
+  window.close();
+}
 
 function saveSearch() {
   getTag();
