@@ -1,13 +1,14 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
     document.getElementById('showHistory').addEventListener('click', showHaystak);
     document.getElementById('helpPage').addEventListener('click', showHelp);
-  }
-);
+  });
+
 });
 
 

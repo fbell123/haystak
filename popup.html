@@ -25,14 +25,14 @@
     <div class="splash">
 
       <form class="search-form">
-        <input id="question" type="textarea" cols="80" name="" placeholder="Search Google"><br><br>
+        <input id="question" type="text" name="" placeholder="Search Google" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"><br><br>
         <input type="submit" id="search" name="" value="Search" autocomplete="off">
         <button type="button" id="save_url" value="Save">Save</button><br><br>
       </form>
       <label for="" name="note"><span id="question_text"></span></label>
       <p id="currentLink" style="display:none;"></p>
       <form class="saving-form">
-        <input id="tag" type="textarea" cols="80" name="" placeholder="Add tags" autocomplete="off">
+        <input id="tag" type="text" name="" placeholder="Add tags" autocomplete="off">
       </form>
     </div>
   </div>
