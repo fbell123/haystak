@@ -19,22 +19,6 @@ var listHistory = function (list) {
    list.innerHTML += questionAnswerPair;
 }
 };
-function convertDate (date){
-
-var dd = date.getDate();
-var mm = date.getMonth()+1; //January is 0!
-var yyyy = date.getFullYear();
-
-if(dd<10) {
-    dd='0'+dd;
-}
-
-if(mm<10) {
-    mm='0'+mm;
-}
-
-return mm+'/'+dd+'/'+yyyy;
-}
 // document.addEventListener("deleteCheck", function () {
 //   console.log(0);
 //   var select = document.getElementById('deleteCheck');
