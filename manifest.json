@@ -24,8 +24,8 @@
   "web_accessible_resources": ["logoicon.png"],
 
   "background": {
-    "scripts": ["background.js", "jquery.js"],
-    "persistent": false
+    "scripts": ["background.js", "jquery.js", "popup.js"],
+    "persistent": true
   },
 
   "permissions": [

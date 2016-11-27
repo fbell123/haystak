@@ -1,5 +1,4 @@
 
-var enabled;
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
@@ -11,14 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 );
 });
 function onOff(){
-  enabled = !enabled;
-  if (enabled){
-    document.getElementById('currentLink').innerHTML = "ON";
-  }
-  if (!enabled) {
-      document.getElementById('currentLink').innerHTML = "OFF";
-  }
-  window.close();
+  chrome.extension.getBackgroundPage().isExtensionEnabled();
 }
 
 function saveSearch() {
@@ -35,12 +27,10 @@ function getUrl(){
   });
 }
 
-
 function getTag(){
   var tag = document.getElementById('tag').value;
   chrome.runtime.sendMessage({ type: "save_tag", data: tag});
 }
-
 
 function questionSearch(){
   var question = document.getElementById('question').value;
@@ -58,10 +48,10 @@ function getHighlight(callback) {
 }
 
 function showHaystak(){
- chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystak.html?" });
- window.close();
+  chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/haystak.html?" });
+  window.close();
 }
 function showHelp(){
- chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/instructions.html?" });
- window.close();
+  chrome.tabs.update({url: "chrome-extension://" + chrome.runtime.id +"/instructions.html?" });
+  window.close();
 }
