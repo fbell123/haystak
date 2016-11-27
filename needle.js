@@ -53,8 +53,9 @@ function injectNeedleIcon(url, value){
     spacePopUp.appendChild(valueHighlight);
     div.appendChild(popup);
     div.appendChild(spacePopUp);
-    document.querySelector("a[href='" + url[i] + "']").appendChild(div);
-  }
+    var parentDiv = document.querySelector("a[href='" + url[i] + "']").parentNode;
+    var sp2 = document.querySelector("a[href='" + url[i] + "']");
+    parentDiv.insertBefore(div, sp2);  }
   hovering();
 }
 
