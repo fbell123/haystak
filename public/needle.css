@@ -10,18 +10,47 @@ div#pop-up {
   display: none;
   position: absolute;
   width: 280px;
-  padding: 10px;
+  /*padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 25px;*/
   background: #ffdb4d;
   color: #ffffff;
   border: 1px #2d3e50 solid;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-weight: lighter;
   border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .para-header {
-  color: #2d3e50;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #fff;
+
 }
 .para-content {
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: 0.9em;
-  color: #537394;
+  color: #fff;
+  letter-spacing: 0.7px;
+}
+.home-menu {
+  margin-top: -15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  background: #2d3e50;
+  width: 100%;
+}
+.pure-menu.pure-menu-fixed {
+  border-bottom: none;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 1.2em;
 }

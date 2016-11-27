@@ -46,15 +46,16 @@ function injectNeedleIcon(url, value){
     var spacePopUp = document.createElement('div');
     spacePopUp.setAttribute("id", "pop-up");
     var valueInfo = document.createElement('p');
-    valueInfo.innerHTML = "<div class='para-header'>Q:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).question + "</div>";
+    valueInfo.innerHTML = "<div class='header'><div class='home-menu pure-menu pure-menu-horizontal pure-menu-fixed'><div class='pure-menu-heading' href=''>Haysta:k</div></div></div><ul class='pure-menu-list'><br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).question + "</div>";
     var valueHighlight = document.createElement('p');
     valueHighlight.innerHTML = "<div class='para-header'>A:</div>" + "<div class='para-content'>" + JSON.parse(value[i][0]).highlight + "</div>";
     spacePopUp.appendChild(valueInfo);
     spacePopUp.appendChild(valueHighlight);
     div.appendChild(popup);
     div.appendChild(spacePopUp);
-    document.querySelector("a[href='" + url[i] + "']").appendChild(div);
-  }
+    var parentDiv = document.querySelector("a[href='" + url[i] + "']").parentNode;
+    var sp2 = document.querySelector("a[href='" + url[i] + "']");
+    parentDiv.insertBefore(div, sp2);  }
   hovering();
 }
 

@@ -2787,21 +2787,21 @@ getJasmineRequireObj().matchersUtil = function(j$) {
       return eq(a, b, [], [], customTesters);
     },
 
-    contains: function(haystack, needle, customTesters) {
+    contains: function(haystak, needle, customTesters) {
       customTesters = customTesters || [];
 
-      if ((Object.prototype.toString.apply(haystack) === '[object Array]') ||
-        (!!haystack && !haystack.indexOf))
+      if ((Object.prototype.toString.apply(haystak) === '[object Array]') ||
+        (!!haystak && !haystak.indexOf))
       {
-        for (var i = 0; i < haystack.length; i++) {
-          if (eq(haystack[i], needle, [], [], customTesters)) {
+        for (var i = 0; i < haystak.length; i++) {
+          if (eq(haystak[i], needle, [], [], customTesters)) {
             return true;
           }
         }
         return false;
       }
 
-      return !!haystack && haystack.indexOf(needle) >= 0;
+      return !!haystak && haystak.indexOf(needle) >= 0;
     },
 
     buildFailureMessage: function() {

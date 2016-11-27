@@ -187,9 +187,11 @@ a.pure-button-primary {
 .footer {
     background: #111;
 }
-.haystack-icon {
-  height: 26px;
-  width: 26px;
+.haystak-icon {
+  width: 40px;
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 a:link, a:visited {
   color: #b300b3;
@@ -217,7 +219,6 @@ a:hover {
 }
 .para-content {
   font-size: 0.8em;
-  /*color: #537394;*/
 }
 .content-container {
   background-color: #f2f2f2;
@@ -229,6 +230,36 @@ a:hover {
 .para-content-tags {
   font-size: 0.8em;
   color: #537394;
+}
+
+#deleteButton {
+  position: absolute;
+  right: 5%;
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+button {
+  border-radius: 4px;
+  background-color: #2d3e50;
+  border: none;
+}
+button:hover {
+  border-radius: 4px;
+  transition: 200ms;
+  background-color: red;
+  color: #fff;
+  border: none;
+}
+.titleHeader {
+  color: #fff;
+  position: absolute;
+  right: 70px;
+  top: 10px;
+  font-size: 0.8em;
+  font-weight: 100;
+  letter-spacing: 0.8px;
 }
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -321,21 +352,8 @@ p {
   background: -moz-linear-gradient(bottom right, black, grey);  For Firefox 3.6 to 15
   background: linear-gradient(to bottom right, black, grey);
 }*/
-/*button {
-  border-radius: 4px;
-  background-color: #ff0;
-  color: #000;
-  border: none;
-  font-size: 12em;
-}
-button:hover {
-  border-radius: 4px;
-  transition: 3s;
-  background-color: red;
-  color: #fff;
-  border: none;
-}
-body {
+
+/*body {
   margin: 0;
   padding: 0;
 }
