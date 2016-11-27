@@ -1,5 +1,5 @@
 body {
-  width: 175px;
+  width: 350px;
   height: 175px;
 }
 
@@ -61,8 +61,10 @@ body {
   color: #ffdb4d;
 }
 input#question, input#tag {
+  text-align: center;
   background: none;
   outline: none;
+  width: 90%;
   margin: 0;
   border: 0;
   color: #2d3e50;
@@ -70,5 +72,5 @@ input#question, input#tag {
 input#question::placeholder, input#tag::placeholder {
   color: #ffffff;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 8px;
 }
