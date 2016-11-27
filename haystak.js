@@ -12,7 +12,8 @@ var listHistory = function (list) {
    var questionValue = obj.question;
    var highlightValue = obj.highlight;
    var tagValue = obj.tags;
-   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue +  "</div>" + "<div class='para-header'>Tags:</div>" + "<div class='para-content-tags'>" + tagValue + "</div><form><input type='submit' value='" + keyTitle + "' id='deleteCheck'> Delete</form><br><br></li><br>";
+   var timeValue = obj.date;
+   var questionAnswerPair = "<li>" + "<div class='content-container'>" + "<a href='" + keyTitle + "' target='_blank'>" + keyTitle + "</a>" + "<br><div class='para-header'>Q:</div>" + "<div class='para-content'>" + questionValue + "</div>" + "<div class='para-header'>A:</div>" + "<div class='para-content'>" + highlightValue +  "</div>" + "<div class='para-header'>Tags:</div>" + "<div class='para-content-tags'>" + tagValue + "</div>"  + "<div class='para-header'>Created :</div>" + "<div class='para-content-time'>" + timeValue + "</div>><br><br></li><br>";
    list.innerHTML += questionAnswerPair;
 }
 };

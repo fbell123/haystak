@@ -64,7 +64,7 @@ chrome.runtime.onMessage.addListener(
     // }
     function saveItem(url) {
       var savedQuestion = localStorage.getItem("newest question");
-      localStorage.setItem(url, JSON.stringify({ question: savedQuestion, highlight: h, tags: t, date: new Date() }));
+      localStorage.setItem(url, JSON.stringify({ question: savedQuestion, highlight: h, tags: t, date: new Date()}));
     }
 
     function search(question) {
