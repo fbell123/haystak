@@ -7,11 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('showHistory').addEventListener('click', showHaystak);
     document.getElementById('helpPage').addEventListener('click', showHelp);
     document.getElementById('onOff').addEventListener('click', onOff);
+    document.getElementById('onOff').addEventListener('click', colorChange);
   });
 });
 
 function onOff(){
   chrome.extension.getBackgroundPage().isExtensionEnabled();
+}
+
+function colorChange() {
+  if (chrome.extension.getBackgroundPage().enableColor() === true ) {
+    document.getElementById("onOff").style.backgroundColor = "#009933";
+    document.getElementById("onOff").innerHTML = "On";
+  }
+  if (chrome.extension.getBackgroundPage().enableColor() === false ) {
+    document.getElementById("onOff").style.backgroundColor = "#ff0000";
+    document.getElementById("onOff").innerHTML = "Off";
+  }
 }
 
 function saveSearch() {

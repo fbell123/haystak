@@ -15,6 +15,13 @@ function isExtensionEnabled(){
     localStorage.setItem("status", "OFF");
   }
 }
+function enableColor() {
+  if (enabled === true){
+    return true;
+  } else if (enabled === false) {
+    return false;
+  }
+}
 
 function storeQuestion (question, callback) {
   if(enabled === true){
