@@ -1,6 +1,6 @@
 body {
   width: 350px;
-  height: 175px;
+  height: 185px;
 }
 
 .home-menu {
@@ -72,5 +72,16 @@ input#question, input#tag {
 input#question::placeholder, input#tag::placeholder {
   color: #ffffff;
   text-align: center;
-  font-size: 8px;
+  font-size: 1.2em;
+}
+button {
+  border-radius: 4px;
+  background-color: #009933;
+  border: none;
+  outline: none;
+}
+button:hover {
+  border-radius: 4px;
+  color: #fff;
+  border: none;
 }
