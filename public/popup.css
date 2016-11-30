@@ -67,7 +67,7 @@ input#question, input#tag {
   width: 90%;
   margin: 0;
   border: 0;
-  color: #2d3e50;
+  color: #ffffff;
 }
 input#question::placeholder, input#tag::placeholder {
   color: #ffffff;

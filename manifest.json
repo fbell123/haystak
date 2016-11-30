@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Haysta:K",
-  "description": "This extension helps developers efficiently find answers to FAQ's & PAQ's",
-  "version": "0.1",
+  "description": "This extension helps you efficiently find answers to PAQ's",
+  "version": "1.1",
 
   "content_scripts": [
   {
@@ -21,7 +21,7 @@
     "default_popup": "popup.html",
     "default_title": "Haysta:k"
   },
-  "web_accessible_resources": ["logoicon.png"],
+  "web_accessible_resources": ["logoicon.png", "Pin.png"],
 
   "background": {
     "scripts": ["background.js", "jquery.js", "popup.js"],

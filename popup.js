@@ -1,5 +1,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('click', function () {
+    if (chrome.extension.getBackgroundPage().isBadgeOFF() === true && document.getElementById("onOff").innerHTML === "On" ){
+      document.getElementById("onOff").style.backgroundColor = "#ff0000";
+      document.getElementById("onOff").innerHTML = "Off";
+    }
 
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
@@ -9,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('onOff').addEventListener('click', onOff);
     document.getElementById('onOff').addEventListener('click', colorChange);
   });
+});
 });
 
 function onOff(){
@@ -20,7 +26,11 @@ function colorChange() {
     document.getElementById("onOff").style.backgroundColor = "#009933";
     document.getElementById("onOff").innerHTML = "On";
   }
-  if (chrome.extension.getBackgroundPage().enableColor() === false ) {
+  if (chrome.extension.getBackgroundPage().enableColor() === false) {
+    document.getElementById("onOff").style.backgroundColor = "#ff0000";
+    document.getElementById("onOff").innerHTML = "Off";
+    }
+  if (chrome.extension.getBackgroundPage().enableColor() === false) {
     document.getElementById("onOff").style.backgroundColor = "#ff0000";
     document.getElementById("onOff").innerHTML = "Off";
   }

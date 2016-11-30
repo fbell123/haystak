@@ -3,6 +3,14 @@ var h;
 var t;
 var data;
 var enabled = true;
+// var checkStatus = localStorage.getItem("status")
+function isBadgeOFF () {
+  if (enabled === false){
+    return true;
+  } else if (enabled === true) {
+    return false;
+  }
+}
 
 function isExtensionEnabled(){
   enabled = !enabled;
