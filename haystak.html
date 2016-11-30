@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <script src="jquery.js"></script>
-
   </head>
   <body>
     <div class="header">
@@ -23,9 +22,7 @@
 
     <div class="splash-container">
         <div class="splash">
-          <form class="splash-head">
-                 <input type="text" id="search-bar" placeholder="Haysta:k tag search">
-               </form>
+          <h1 class="splash-head">Haysta:k</h1>
             <p class="splash-subhead">
                 Helping developers find the answers to PAQs
             </p>
@@ -34,7 +31,7 @@
 
     <div class="content-wrapper">
         <div class="content">
-            <h2 class="content-head is-center">Your questions and answers</h2>
+            <h2 class="content-head is-center" id="header">Your questions and answers</h2>
             <div class="pure-g">
                 <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                     <h3 class="content-subhead">
@@ -42,14 +39,8 @@
                         <ul id="search-history">
                         </ul>
                 </div>
-                <ul id="search-tags">
-                </ul>
             </div>
         </div>
-        <form>
-          <input id="tagSearch" type="text" value="">
-          <input id="tagSearchSubmit" placeholder="search by tag" type="submit" value="Search tags">
-        </form>
 
         </form>
         <div class="ribbon l-box-lrg pure-g">
