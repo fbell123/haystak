@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById("onOff").style.backgroundColor = "#ff0000";
       document.getElementById("onOff").innerHTML = "Off";
     }
-
   document.getElementById('search').addEventListener('click', questionSearch);
   chrome.tabs.getSelected(null, function(tab) {
     document.querySelector('#save_url').addEventListener('click', saveSearch);
