@@ -17,7 +17,21 @@ h6,
 label {
     color: #34495e;
 }
-
+input.filterinput {
+  text-align: center;
+  background: none;
+  outline: none;
+  width: 30%;
+  margin: 0;
+  border: 0.2px #e6e6e6 solid;
+  color: #3366ff;
+  border-radius: 8px;
+}
+input.filterinput::placeholder {
+  color: #e6e6e6;
+  text-align: center;
+  font-size: 0.8em;
+}
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -230,6 +244,10 @@ a:hover {
 .para-content-tags {
   font-size: 0.8em;
   color: #537394;
+}
+.para-content-time {
+  position: absolute;
+  right: 5%;
 }
 
 #deleteButton {
