@@ -3,7 +3,15 @@ var h;
 var t;
 var data;
 var enabled = true;
-// var checkStatus = localStorage.getItem("status")
+var checkStatus = localStorage.getItem("status");
+
+document.addEventListener('click', function () {
+  if(checkStatus === "OFF")
+    chrome.runtime.sendMessage({ type: "OFF"});
+  if(checkStatus === "on")
+      chrome.runtime.sendMessage({ type: "on"});
+});
+
 function isBadgeOFF () {
   if (enabled === false){
     return true;
@@ -54,7 +62,14 @@ chrome.runtime.onMessage.addListener(
         t = request.data;
       }
     }
+    // if(localStorage.getItem("status") === "OFF") {
+    //   if (request.type === "checkOnOff", getResponse) {
+    //     sendResponse(
+    //     return true;
+    //   }
+    // }
   });
+
 
   chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {

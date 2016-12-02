@@ -43,7 +43,7 @@ function createElement(element) {
 }
 
 function imgAttribute(img) {
-  img.src = chrome.extension.getURL('Pin.png');
+  img.src = chrome.extension.getURL('logoicon.png');
 }
 
 function createAllAttributes(element1, element2, element3) {
