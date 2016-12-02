@@ -21,7 +21,7 @@
     "default_popup": "popup.html",
     "default_title": "Haysta:k"
   },
-  "web_accessible_resources": ["logoicon.png", "Pin.png"],
+  "web_accessible_resources": ["logoicon.png", "Pin.png", "Pinsmall.png"],
 
   "background": {
     "scripts": ["background.js", "jquery.js", "popup.js"],
